@@ -15,26 +15,35 @@ def sent_dict(file_name):
             scores[term] = int(score)  # convert score to integer
     return scores
 
-def read_tweets(tweet_file):
-    for line in tweet_file:
-        jtweet = json.loads(line)
-        if 'text' in jtweet:
-            return jtweet['text'].encode('utf-8')
-    #print jtweet[u'text'].encode('utf-8')
+# get the 'tweet' content from a line of the twitter API
+def get_tweet(line):
+    jtweet = json.loads(line)
+    if 'text' in jtweet:
+        return jtweet['text'].encode('utf-8')
+    else:
+        return None
 
+# calculate the sentiment in a string of text (aka text) according to a sentiment dictionary
 def sent_calc(tweet,sent_dict):
     score = 0
     for word in tweet.split(" "):
         if word in sent_dict:
             score += sent_dict[word]
-    print score
+    return score
+
+def score_tweets(tweet_file,sent_dict):
+    for line in tweet_file:
+        tweet = get_tweet(line)
+        if tweet is not None:
+            score = sent_calc(tweet,sent_dict)
+            print score
+
 
 def main():
     sent_file = open(sys.argv[1])
     tweet_file = open(sys.argv[2])
     sentdict = sent_dict(sent_file)
-    tweet = 'this is just a test of good faith'
-    sent_calc(tweet,sentdict)
+    score_tweets(tweet_file,sentdict)
 
 #    read_tweets(tweet_file)
 
