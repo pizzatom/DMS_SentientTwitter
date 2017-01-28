@@ -18,7 +18,8 @@ def sent_dict(file_name):
 def read_tweets(tweet_file):
     for line in tweet_file:
         jtweet = json.loads(line)
-        print jtweet
+        if 'text' in jtweet
+        print jtweet['text'].encode('utf-8')
     #print jtweet[u'text'].encode('utf-8')
 
 def main():
