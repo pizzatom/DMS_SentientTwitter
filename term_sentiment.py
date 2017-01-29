@@ -22,6 +22,15 @@ def score_terms(tweet,new_dict,sent_dict):
             if term not in sent_dict: # add it to new_dict
                 new_score(term,score,new_dict)
 
+def terms(tweet_file,new_dict,sent_dict):
+    for line in tweet_file:
+        tweet = twit.get_tweet(line)
+        score_terms(tweet,new_dict,sent_dict)
+
+def term_score(new_dict):
+    for key in new_dict
+        print key new_dict[key][0]/new_dict[key][1]
+
 def main():
     sent_file = open(sys.argv[1])
     tweet_file = open(sys.argv[2])
@@ -30,7 +39,7 @@ def main():
     new_dict = {} # initialize scores dict
 
     score_terms(tweet,new_dict,sentdict)
-    print new_dict
+    term_score(new_dict)
 
 if __name__ == '__main__':
     main()
