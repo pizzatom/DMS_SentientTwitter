@@ -2,12 +2,6 @@ import sys
 import json
 import tweet_sentiment as twit
 
-def hw():
-    print 'Hello, world!'
-
-def lines(fp):
-    print str(len(fp.readlines()))
-
 
 def new_score(term,score,new_dict):
         if term not in new_dict:

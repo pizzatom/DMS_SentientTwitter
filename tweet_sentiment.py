@@ -2,12 +2,6 @@ import sys
 import json
 import string
 
-def hw():
-    print 'Hello, world!'
-
-def lines(fp):
-    print str(len(fp.readlines()))
-
 def sent_dict(file_name):
     afinnfile = file_name
     scores = {} # initialize dictionary
