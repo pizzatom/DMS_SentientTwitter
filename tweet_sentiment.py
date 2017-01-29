@@ -20,7 +20,7 @@ def sent_dict(file_name):
 def get_tweet(line):
     jtweet = json.loads(line)
     if 'text' in jtweet:
-        return jtweet['text'].translate(None,string.punctuation).encode('utf-8')  # this is supposed to return the tweet without punctuation
+        return jtweet['text'].encode('utf-8')
     else:
         return None
 
