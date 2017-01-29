@@ -31,12 +31,15 @@ def sent_calc(tweet,sent_dict):
             score += sent_dict[word]
     return score
 
+def tweet_score(line,sent_dict):
+    tweet = get_tweet(line)
+    if tweet is not None:
+        score = sent_calc(tweet,sent_dict)
+        return score
+
 def score_tweets(tweet_file,sent_dict):
     for line in tweet_file:
-        tweet = get_tweet(line)
-        if tweet is not None:
-            score = sent_calc(tweet,sent_dict)
-            print score
+        print tweet_score(line,sent_dict)
 
 
 def main():
