@@ -37,8 +37,8 @@ def main():
     sentdict = twit.sent_dict(sent_file)
     tweet = "this is is just an awesome test!"
     new_dict = {} # initialize scores dict
-
-    score_terms(tweet,new_dict,sentdict)
+    #score_terms(tweet,new_dict,sentdict)
+    terms(tweet_file,new_dict,sentdict)
     term_scores(new_dict)
 
 if __name__ == '__main__':
