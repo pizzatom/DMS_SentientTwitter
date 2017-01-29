@@ -27,9 +27,9 @@ def terms(tweet_file,new_dict,sent_dict):
         tweet = twit.get_tweet(line)
         score_terms(tweet,new_dict,sent_dict)
 
-def term_score(new_dict):
-    for key in new_dict
-        print key new_dict[key][0]/new_dict[key][1]
+def term_scores(new_dict):
+    for key in new_dict:
+        print key, new_dict[key][0]/new_dict[key][1]
 
 def main():
     sent_file = open(sys.argv[1])
@@ -39,7 +39,7 @@ def main():
     new_dict = {} # initialize scores dict
 
     score_terms(tweet,new_dict,sentdict)
-    term_score(new_dict)
+    term_scores(new_dict)
 
 if __name__ == '__main__':
     main()
